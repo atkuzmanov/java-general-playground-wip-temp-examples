@@ -3,7 +3,11 @@ package head.first.java.poolpuzzlechapter2;
 public class EchoTestDrive {
     public static void main(String[] args) {
         Echo e1 = new Echo();
-        Echo e2 = new Echo();
+        // The correct answer.
+        // Echo e2 = new Echo();
+        // or
+        // The bonus answer.
+        Echo e2 = e1;
 
         int x = 0;
 
