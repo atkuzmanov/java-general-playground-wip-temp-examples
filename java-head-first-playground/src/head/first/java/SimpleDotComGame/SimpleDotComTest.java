@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 public class SimpleDotComTest {
 
     @Test
-    public void test1() {
+    public void testSimpleDotCom() {
         SimpleDotCom dot1 = new SimpleDotCom();
 
         int[] locations = {2, 3, 4};
@@ -26,4 +26,5 @@ public class SimpleDotComTest {
 
         assert (testResult.equals("passed"));
     }
+
 }
