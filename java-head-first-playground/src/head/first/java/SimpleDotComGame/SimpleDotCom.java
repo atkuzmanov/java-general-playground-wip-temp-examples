@@ -3,10 +3,8 @@ package head.first.java.SimpleDotComGame;
 public class SimpleDotCom {
     private int[] locationCells;
     private int numOfHits = 0;
-
-    public void setLocationCells(int[] locations) {
-        locationCells = locations;
-    }
+    private int numOfGuesses = 0;
+    private String name = "";
 
     public String checkYourself(String stringGuess) {
         int guess = Integer.parseInt(stringGuess);
@@ -26,7 +24,28 @@ public class SimpleDotCom {
 
         System.out.println("> " + result);
 
+        numOfGuesses++;
+
         return result;
     }
 
+    public int getNumOfHits() {
+        return numOfHits;
+    }
+
+    public void setLocationCells(int[] locations) {
+        locationCells = locations;
+    }
+
+    public int getNumOfGuesses() {
+        return numOfGuesses;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

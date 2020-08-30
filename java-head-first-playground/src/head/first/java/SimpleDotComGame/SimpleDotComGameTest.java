@@ -2,12 +2,12 @@ package head.first.java.SimpleDotComGame;
 
 import org.junit.jupiter.api.Test;
 
-public class SimpleDotComGameTest {
-    @Test
-    public void testGenerateRandomLocations() {
-        SimpleDotComGame game1 = new SimpleDotComGame();
+import static head.first.java.SimpleDotComGame.SimpleDotComGame.generateRandomLocations;
 
-        int[] testLocations = game1.generateRandomLocations();
+class SimpleDotComGameTest {
+    @Test
+    void testGenerateRandomLocations() {
+        int[] testLocations = generateRandomLocations();
 
         System.out.println("> int testLocations length: " + testLocations.length);
         for(int cell : testLocations) System.out.println("> " + cell);
