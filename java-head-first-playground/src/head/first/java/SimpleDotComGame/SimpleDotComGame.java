@@ -1,10 +1,12 @@
 package head.first.java.SimpleDotComGame;
 
+import java.util.ArrayList;
+
 public class SimpleDotComGame {
     public static void main(String[] args) {
         GameHelper helper = new GameHelper();
 
-        SimpleDotCom dot1 = new SimpleDotCom();
+        DotCom dot1 = new DotCom();
         dot1.setName("SimpleDotCom1");
         dot1.setLocationCells(generateRandomLocations());
 
@@ -19,8 +21,9 @@ public class SimpleDotComGame {
         System.out.println("Game Over");
     }
 
-    static int[] generateRandomLocations() {
-        int[] newRandomLocations = new int[3];
+    static ArrayList<String> generateRandomLocations() {
+        ArrayList<String> newRandLocsStr = new ArrayList<>();
+
         int min = 0;
         int max = 6;
         int firstCell = (int) (Math.random() * ((max - min) + 1)) + min;
@@ -31,21 +34,20 @@ public class SimpleDotComGame {
         if (firstCell >= 5) {
             growForward = false;
         }
-
         if (firstCell <= 1) {
             growForward = true;
         }
 
-        for (int i = 0; i < newRandomLocations.length; i++) {
+        for (int i = 0; i < 3; i++) {
             if (growForward) {
-                newRandomLocations[i] = firstCell;
+                newRandLocsStr.add(String.valueOf(firstCell));
                 firstCell++;
             } else {
-                newRandomLocations[i] = firstCell;
+                newRandLocsStr.add(String.valueOf(firstCell));
                 firstCell--;
             }
         }
 
-        return newRandomLocations;
+        return newRandLocsStr;
     }
 }

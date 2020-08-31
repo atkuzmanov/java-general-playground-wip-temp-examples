@@ -2,16 +2,18 @@ package head.first.java.SimpleDotComGame;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static head.first.java.SimpleDotComGame.SimpleDotComGame.generateRandomLocations;
 
 class SimpleDotComGameTest {
     @Test
     void testGenerateRandomLocations() {
-        int[] testLocations = generateRandomLocations();
+        ArrayList<String> testLocations = generateRandomLocations();
 
-        System.out.println("> int testLocations length: " + testLocations.length);
-        for(int cell : testLocations) System.out.println("> " + cell);
+        System.out.println("> String testLocations size: " + testLocations.size());
+        for(String cell : testLocations) System.out.println("> " + cell);
 
-        assert (testLocations.length == 3);
+        assert (testLocations.size() == 3);
     }
 }
