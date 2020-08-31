@@ -2,20 +2,26 @@ package head.first.java.SimpleDotComGame;
 
 public class SimpleDotComGame {
     public static void main(String[] args) {
+        GameHelper helper = new GameHelper();
+
         SimpleDotCom dot1 = new SimpleDotCom();
         dot1.setName("SimpleDotCom1");
         dot1.setLocationCells(generateRandomLocations());
 
         // Ask user for a guess
-        int userGuess = (int) (Math.random() * ((6 - 0) + 1)) + 0;
+//        int userGuess = (int) (Math.random() * ((6 - 0) + 1)) + 0;
+//        String result = dot1.checkYourself(String.valueOf(userGuess));
 
-        String result = dot1.checkYourself(String.valueOf(userGuess));
-        while (!result.equals("kill")) {
-            userGuess = (int) (Math.random() * ((6 - 0) + 1)) + 0;
-            result = dot1.checkYourself(String.valueOf(userGuess));
+
+        while (dot1.isAlive()) {
+//            userGuess = (int) (Math.random() * ((6 - 0) + 1)) + 0;
+            String guess = helper.getUserInput("Enter a number: ");
+            String result = dot1.checkYourself(String.valueOf(guess));
+            if(result.equals("kill")) {
+                dot1.setAlive(false);
+                System.out.println("You took " + dot1.getNumOfGuesses() + " guesses to sink battleship " + dot1.getName());
+            }
         }
-
-        System.out.println("You took " + dot1.getNumOfGuesses() + " guesses to sink battleship " + dot1.getName());
         System.out.println("Game Over");
     }
 
@@ -36,8 +42,8 @@ public class SimpleDotComGame {
             growForward = true;
         }
 
-        for(int i = 0; i < newRandomLocations.length; i++) {
-            if(growForward) {
+        for (int i = 0; i < newRandomLocations.length; i++) {
+            if (growForward) {
                 newRandomLocations[i] = firstCell;
                 firstCell++;
             } else {

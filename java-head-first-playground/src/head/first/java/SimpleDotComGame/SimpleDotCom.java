@@ -5,21 +5,23 @@ public class SimpleDotCom {
     private int numOfHits = 0;
     private int numOfGuesses = 0;
     private String name = "";
+    private boolean isAlive = true;
 
     public String checkYourself(String stringGuess) {
         int guess = Integer.parseInt(stringGuess);
         String result = "miss";
 
-        for(int cell : locationCells){
-            if(guess == cell) {
+        for (int cell : locationCells) {
+            if (guess == cell) {
                 result = "hit";
                 numOfHits++;
                 break;
             }
         }
 
-        if(numOfHits == locationCells.length) {
+        if (numOfHits == locationCells.length) {
             result = "kill";
+            isAlive = false;
         }
 
         System.out.println("> " + result);
@@ -47,5 +49,13 @@ public class SimpleDotCom {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public boolean isAlive() {
+        return isAlive;
+    }
+
+    public void setAlive(boolean alive) {
+        isAlive = alive;
     }
 }
