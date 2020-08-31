@@ -8,13 +8,7 @@ public class SimpleDotComGame {
         dot1.setName("SimpleDotCom1");
         dot1.setLocationCells(generateRandomLocations());
 
-        // Ask user for a guess
-//        int userGuess = (int) (Math.random() * ((6 - 0) + 1)) + 0;
-//        String result = dot1.checkYourself(String.valueOf(userGuess));
-
-
         while (dot1.isAlive()) {
-//            userGuess = (int) (Math.random() * ((6 - 0) + 1)) + 0;
             String guess = helper.getUserInput("Enter a number: ");
             String result = dot1.checkYourself(String.valueOf(guess));
             if(result.equals("kill")) {
