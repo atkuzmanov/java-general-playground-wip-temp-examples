@@ -9,6 +9,12 @@ import java.util.Map;
  * Grid 7x7 equals to an array of size 49.
  * Grid is 0 based. Array is 0 based.
  * Searching for items in the array[49] and calculating their coordinates in [7x7] grid.
+ *
+ * Example (in pseudocode):
+ *
+ * int positionLocation = 27
+ * int row = (int) ((positionLocation - 1) / gridLength) = (27-1)/7 = 26/7 = 3.71... = 3
+ * int column = (positionLocation - 1) % gridLength = (27-1)%7 = 26%7 = 5
  */
 public class Arrays1GridPosition1 {
 
