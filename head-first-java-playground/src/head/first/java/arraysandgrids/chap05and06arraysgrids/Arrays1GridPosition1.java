@@ -15,6 +15,7 @@ import java.util.Map;
  * int positionLocation = 27
  * int row = (int) ((positionLocation - 1) / gridLength) = (27-1)/7 = 26/7 = 3.71... = 3
  * int column = (positionLocation - 1) % gridLength = (27-1)%7 = 26%7 = 5
+ * grid[3][5]
  */
 public class Arrays1GridPosition1 {
 
