@@ -1,8 +1,15 @@
-package head.first.java.chap05and06arrays1;
+package head.first.java.arraysandgrids.chap05and06arraysgrids;
 
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Head First Java book, Chapter 6, pages 152-153 and others linked to those.
+ * Grid representation as single linear array.
+ * Grid 7x7 equals to an array of size 49.
+ * Grid is 0 based. Array is 0 based.
+ * Searching for items in the array[49] and calculating their coordinates in [7x7] grid.
+ */
 public class Arrays1GridPosition1Simple1 {
 
     private static int gridLength = 7;

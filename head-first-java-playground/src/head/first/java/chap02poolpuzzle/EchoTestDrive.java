@@ -1,4 +1,4 @@
-package head.first.java.poolpuzzlechapter2;
+package head.first.java.chap02poolpuzzle;
 
 public class EchoTestDrive {
     public static void main(String[] args) {

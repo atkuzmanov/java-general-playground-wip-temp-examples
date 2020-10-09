@@ -1,4 +1,4 @@
-package head.first.java.chapter9random1;
+package head.first.java.chap09random1;
 
 abstract public class B implements A {
     int b1 = a1;

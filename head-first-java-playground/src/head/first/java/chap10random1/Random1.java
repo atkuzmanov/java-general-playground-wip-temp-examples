@@ -1,4 +1,4 @@
-package head.first.java.chapter10random1;
+package head.first.java.chap10random1;
 
 public class Random1 {
     static int a = 1;

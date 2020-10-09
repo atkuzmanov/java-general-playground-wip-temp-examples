@@ -1,4 +1,4 @@
-package head.first.java.chapter9random1;
+package head.first.java.chap09random1;
 
 public class C extends B {
 

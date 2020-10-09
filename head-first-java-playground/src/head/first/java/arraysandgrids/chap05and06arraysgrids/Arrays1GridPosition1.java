@@ -1,4 +1,4 @@
-package head.first.java.chap05and06arrays1;
+package head.first.java.arraysandgrids.chap05and06arraysgrids;
 
 import java.io.BufferedReader;
 import java.io.IOException;

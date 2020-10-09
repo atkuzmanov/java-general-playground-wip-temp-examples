@@ -1,4 +1,4 @@
-package head.first.java.random;
+package head.first.java.chap05random;
 
 public class CodeMagnetsCh5 {
     public static void main(String[] args) {
