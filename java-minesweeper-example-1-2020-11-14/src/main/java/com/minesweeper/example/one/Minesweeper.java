@@ -45,14 +45,14 @@ public class Minesweeper {
     private static void printBoard(char[][] board) {
         int i, j = 0;
 
-        System.out.print("  ");
+        System.out.print("   ");
         for (i = 0; i < ROWS; i++) {
             System.out.print(" " + i);
         }
 
-        System.out.println("");
+        System.out.println("\n");
         for (i = 0; i < ROWS; i++) {
-            System.out.print(" " + i);
+            System.out.print(" " + i + " ");
 
             for (j = 0; j < COLS; j++) {
                 System.out.print(" " + board[i][j]);
@@ -407,6 +407,7 @@ public class Minesweeper {
         int[] userMoveCoors = new int[2];
         userMoveCoors[0] = x;
         userMoveCoors[1] = y;
+        System.out.printf("\nUser move is: [%d,%d]\n", userMoveCoors[0], userMoveCoors[1]);
         return userMoveCoors;
     }
 
