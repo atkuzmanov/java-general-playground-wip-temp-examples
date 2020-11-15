@@ -99,8 +99,6 @@ public class Minesweeper {
                 MOVES_COORS[i][0] = x;
                 // Column Index of the Mine.
                 MOVES_COORS[i][1] = y;
-                // Place the mine
-                realBoard[x][y] = '*';
                 marked[random] = true;
                 i++;
             }
@@ -112,7 +110,7 @@ public class Minesweeper {
         int result[] = new int[2];
         result[0] = MOVES_COORS[currentMoveIndex][0];
         result[1] = MOVES_COORS[currentMoveIndex][1];
-
+        System.out.printf("\nMy move is: [%d,%d]\n", result[0], result[1]);
         return result;
     }
 
@@ -138,7 +136,7 @@ public class Minesweeper {
         S.E--> South-East   (row+1, col+1)
         S.W--> South-West   (row+1, col-1)
      */
-    private static int countAdjacentMines(int row, int col, char realBoard[][]) {
+    private static int countAdjacentMines(int row, int col, char[][] realBoard) {
         int count = 0;
 
         //----------- 1st Neighbour (North) ------------
@@ -220,7 +218,7 @@ public class Minesweeper {
             int count = countAdjacentMines(row, col, realBoard);
             movesLeft--;
 
-            playerBoard[row][col] = (char) (count + '0');
+            playerBoard[row][col] = Integer.toString(count).charAt(0);
 
             if (count == 0) {
                 /*
