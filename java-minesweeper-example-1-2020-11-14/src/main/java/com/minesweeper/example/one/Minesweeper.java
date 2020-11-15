@@ -1,6 +1,7 @@
 package com.minesweeper.example.one;
 
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  * References:
@@ -10,7 +11,7 @@ public class Minesweeper {
 
     private static final int ROWS = 7;
     private static final int COLS = 7;
-    private static final int MINES = 5;
+    private static final int MINES = 3;
     // Stores (x,y) coordinates of all mines.
     private static final int MINES_COORS[][] = new int[MINES][2];
     private static int MOVES_LEFT = ROWS * COLS - MINES;
@@ -105,6 +106,14 @@ public class Minesweeper {
         }
     }
 
+    private static int[] makeAMoveUsingPlayRandomMoves(int currentMoveIndex) {
+        int[] result = new int[2];
+        result[0] = MOVES_COORS[currentMoveIndex][0];
+        result[1] = MOVES_COORS[currentMoveIndex][1];
+        System.out.printf("\nMy move is: [%d,%d]\n", result[0], result[1]);
+        return result;
+    }
+
     // Not working but demonstrates breaking out of outer loop with label.
 //    private static int[] playRandomMove() {
 //        int[] result = new int[2];
@@ -152,14 +161,6 @@ public class Minesweeper {
         System.out.printf("\nMy move is: [%d,%d]\n", result[0], result[1]);
         return result;
     }
-
-//    private static int[] makeAMove(int currentMoveIndex) {
-//        int[] result = new int[2];
-//        result[0] = MOVES_COORS[currentMoveIndex][0];
-//        result[1] = MOVES_COORS[currentMoveIndex][1];
-//        System.out.printf("\nMy move is: [%d,%d]\n", result[0], result[1]);
-//        return result;
-//    }
 
     /*
         Count all the mines in the 8 adjacent
@@ -263,7 +264,8 @@ public class Minesweeper {
             // Calculate the number of adjacent mines and put it
             // on the board.
             int count = countAdjacentMines(row, col, realBoard);
-            movesLeft--;
+//            movesLeft--;
+            MOVES_LEFT = MOVES_LEFT - 1;
 
             playerBoard[row][col] = Integer.toString(count).charAt(0);
 
@@ -367,7 +369,8 @@ public class Minesweeper {
         while (!gameOver) {
             System.out.println("Current state of the board: ");
             printBoard(playerBoard);
-            int[] currentMove = makeAMove(currentMoveIndex);
+//            int[] currentMove = makeAMove(currentMoveIndex);
+            int[] currentMove = userMakesAMove();
             int x = currentMove[0];
             int y = currentMove[1];
 
@@ -393,6 +396,18 @@ public class Minesweeper {
     private static void cheatMinesweeper(char board[][]) {
         System.out.println("The mines locations are:");
         printBoard(board);
+    }
+
+    // Get user input to play the game.
+    // Input is not validated so use only valid numbers.
+    private static int[] userMakesAMove() {
+        Scanner scn = new Scanner(System.in);
+        int x = scn.nextInt();
+        int y = scn.nextInt();
+        int[] userMoveCoors = new int[2];
+        userMoveCoors[0] = x;
+        userMoveCoors[1] = y;
+        return userMoveCoors;
     }
 
     public static void main(String[] args) {
