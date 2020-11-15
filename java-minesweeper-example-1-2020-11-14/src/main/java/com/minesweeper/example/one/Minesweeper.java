@@ -45,13 +45,11 @@ public class Minesweeper {
         int i, j = 0;
 
         System.out.print("  ");
-
         for (i = 0; i < ROWS; i++) {
             System.out.print(" " + i);
         }
 
-        System.out.println("\n");
-
+        System.out.println("");
         for (i = 0; i < ROWS; i++) {
             System.out.print(" " + i);
 
@@ -64,7 +62,7 @@ public class Minesweeper {
 
     private static int getRandNum(int min, int range) {
         Random r = new Random();
-        return r.nextInt(range + 1) + min;
+        return r.nextInt(range) + min;
     }
 
     private static void placeRandomMines() {
@@ -299,7 +297,53 @@ public class Minesweeper {
         }
         return false;
     }
-    
+
+    // A function to replace the mine from (row, col) and put it to a vacant space.
+    private static void replaceMine(int row, int col, char board[][]) {
+        for (int i = 0; i < ROWS; i++) {
+            for (int j = 0; j < COLS; j++) {
+                // Find the first location in the board which doesn't have a mine and put a mine there.
+                if (board[i][j] != '*') {
+                    board[i][j] = '*';
+                    board[row][col] = '-';
+                    break;
+                }
+            }
+        }
+    }
+
+    private static void playMineSweeper() {
+        boolean gameOver = false;
+
+        int currentMoveIndex = 0;
+
+        // You are in the game until you have not opened a mine.
+        // So keep playing.
+        while (!gameOver) {
+            System.out.println("Current state of the board: ");
+            printBoard(playerBoard);
+            int[] currentMove = makeAMove(currentMoveIndex);
+            int x = currentMove[0];
+            int y = currentMove[1];
+
+            // This is to guarantee that the first move is always safe.
+            if (currentMoveIndex == 0) {
+                // If the first move itself is a mine
+                // then we remove the mine from that location
+                if (isMine(x, y, realBoard))
+                    replaceMine(x, y, realBoard);
+            }
+            currentMoveIndex++;
+
+            gameOver = playMinesweeperUtil(x, y, MOVES_LEFT);
+
+            if (!gameOver && MOVES_LEFT == 0) {
+                System.out.println("\nYou won !\n");
+                gameOver = true;
+            }
+        }
+    }
+
     // A Function to cheat by revealing where the mines are placed.
     private static void cheatMinesweeper(char board[][]) {
         System.out.println("The mines locations are:");
@@ -308,9 +352,9 @@ public class Minesweeper {
 
     public static void main(String[] args) {
         initialise();
-        printBoard(playerBoard);
         placeRandomMines();
         printBoard(realBoard);
-
+        playRandomMoves();
+        playMineSweeper();
     }
 }
