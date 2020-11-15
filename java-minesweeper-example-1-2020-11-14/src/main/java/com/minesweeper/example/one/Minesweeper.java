@@ -1,11 +1,15 @@
 package com.minesweeper.example.one;
 
+import java.util.Random;
+
 public class Minesweeper {
 
-    static final int ROWS = 7;
-    static final int COLS = 7;
-    static char[][] realBoard = new char[ROWS][COLS];
-    static char[][] playerBoard = new char[ROWS][COLS];
+    private static final int ROWS = 7;
+    private static final int COLS = 7;
+    private static final int MINES = 5;
+    private static final int MINES_COORS[][] = new int[MINES][2];
+    private static char[][] realBoard = new char[ROWS][COLS];
+    private static char[][] playerBoard = new char[ROWS][COLS];
 
     private static boolean isMine(int row, int col, char[][] board) {
         if (board[row][col] == '*')
@@ -30,10 +34,10 @@ public class Minesweeper {
         }
     }
 
-    private static void printPlayerBoard() {
+    private static void printBoard(char[][] board) {
         int i, j = 0;
 
-        System.out.println("    ");
+        System.out.print("  ");
 
         for (i = 0; i < ROWS; i++) {
             System.out.print(" " + i);
@@ -45,14 +49,47 @@ public class Minesweeper {
             System.out.print(" " + i);
 
             for (j = 0; j < COLS; j++) {
-                System.out.print(playerBoard[i][j]);
+                System.out.print(" " + board[i][j]);
             }
             System.out.println();
         }
     }
 
+    private static int getRandNum(int min, int range) {
+        Random r = new Random();
+        return r.nextInt(range + 1) + min;
+    }
+
+    private static void placeRandomMines() {
+        boolean[] marked = new boolean[ROWS * COLS];
+
+        for (int i = 0; i < MINES; ) {
+            int random = getRandNum(0, ROWS * COLS);
+            int x = random / ROWS;
+            int y = random % COLS;
+
+            if (marked[random] == false) {
+                // Row Index of the Mine.
+                MINES_COORS[i][0]= x;
+                // Column Index of the Mine.
+                MINES_COORS[i][1] = y;
+                // Place the mine
+                realBoard[x][y] = '*';
+                marked[random] = true;
+                i++;
+            }
+        }
+
+    }
+
     public static void main(String[] args) {
         initialise();
-        printPlayerBoard();
+        printBoard(playerBoard);
+        placeRandomMines();
+        printBoard(realBoard);
+
+//        for(int i = 0; i < 10; i++) {
+//            System.out.println(getRandNum(0, 7) % (ROWS * COLS));
+//        }
     }
 }
