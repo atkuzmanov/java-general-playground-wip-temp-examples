@@ -105,14 +105,61 @@ public class Minesweeper {
         }
     }
 
+    // Not working but demonstrates breaking out of outer loop with label.
+//    private static int[] playRandomMove() {
+//        int[] result = new int[2];
+//        int random = getRandNum(0, ROWS * COLS);
+//        int x = random / ROWS;
+//        int y = random % COLS;
+//        boolean success = false;
+//        while (!success) {
+//            outerloop:for (int i = 0; i < ROWS; i++) {
+//                for (int j = 0; j < COLS; j++) {
+//                    if (playerBoard[i][j] == '-') {
+//                        result[0] = i;
+//                        result[1] = j;
+//                        success = true;
+//                        break outerloop;
+//                    }
+//                }
+//            }
+//        }
+//        return result;
+//    }
+
+    private static int[] playRandomMove() {
+        int[] result = new int[2];
+        int random = getRandNum(0, ROWS * COLS);
+        int x = random / ROWS;
+        int y = random % COLS;
+        while (true) {
+            if (playerBoard[x][y] == '-') {
+                result[0] = x;
+                result[1] = y;
+                break;
+            } else {
+                random = getRandNum(0, ROWS * COLS);
+                x = random / ROWS;
+                y = random % COLS;
+            }
+        }
+        return result;
+    }
 
     private static int[] makeAMove(int currentMoveIndex) {
-        int result[] = new int[2];
-        result[0] = MOVES_COORS[currentMoveIndex][0];
-        result[1] = MOVES_COORS[currentMoveIndex][1];
+        int[] result = new int[2];
+        result = playRandomMove();
         System.out.printf("\nMy move is: [%d,%d]\n", result[0], result[1]);
         return result;
     }
+
+//    private static int[] makeAMove(int currentMoveIndex) {
+//        int[] result = new int[2];
+//        result[0] = MOVES_COORS[currentMoveIndex][0];
+//        result[1] = MOVES_COORS[currentMoveIndex][1];
+//        System.out.printf("\nMy move is: [%d,%d]\n", result[0], result[1]);
+//        return result;
+//    }
 
     /*
         Count all the mines in the 8 adjacent
