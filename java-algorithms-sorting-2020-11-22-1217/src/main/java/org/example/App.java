@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.bubblesort.BubbleSort1;
 import org.example.insertionsort.InsertionSort1;
 import org.example.mergesort.MergeSort1;
 import org.example.mergesort.MergeSort2;
@@ -41,6 +42,13 @@ public class App {
         arr = new int[]{64, 25, 12, 22, 11};
         printArray(arr);
         System.out.println("Merge Sort End");
+        /*--------------------------------*/
+        System.out.println("Bubble Sort Start");
+        BubbleSort1.bubbleSort1(arr);
+        printArray(arr);
+        arr = new int[]{64, 25, 12, 22, 11};
+        printArray(arr);
+        System.out.println("Bubble Sort End");
         /*--------------------------------*/
     }
 
