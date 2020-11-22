@@ -1,6 +1,9 @@
 package org.example;
 
 import org.example.insertionsort.InsertionSort1;
+import org.example.mergesort.MergeSort1;
+import org.example.mergesort.MergeSort2;
+import org.example.mergesort.MergeSort3;
 import org.example.selectionsort.SelectionSort1;
 
 /**
@@ -29,6 +32,15 @@ public class App {
         arr = new int[]{64, 25, 12, 22, 11};
         printArray(arr);
         System.out.println("Insertion Sort End");
+        /*--------------------------------*/
+        System.out.println("Merge Sort Start");
+        printArray(MergeSort1.mergeSort1(arr, arr.length));
+//        MergeSort2.mergeSort2(arr, arr.length);
+//        MergeSort3.sort(arr,0, arr.length-1);
+        printArray(arr);
+        arr = new int[]{64, 25, 12, 22, 11};
+        printArray(arr);
+        System.out.println("Merge Sort End");
         /*--------------------------------*/
     }
 
