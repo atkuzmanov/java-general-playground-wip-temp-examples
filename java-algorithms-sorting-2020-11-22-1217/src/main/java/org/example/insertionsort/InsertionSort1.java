@@ -1,5 +1,16 @@
 package org.example.insertionsort;
 
+/**
+ * References:
+ * https://www.geeksforgeeks.org/insertion-sort/
+ * https://www.w3resource.com/java-exercises/sorting/java-sorting-algorithm-exercise-7.php
+ * https://www.javatpoint.com/insertion-sort-in-java
+ * https://www.baeldung.com/java-insertion-sort
+ * https://stackabuse.com/insertion-sort-in-java/
+ * https://www.programiz.com/dsa/insertion-sort
+ * https://www.softwaretestinghelp.com/insertion-sort-in-java/
+ * https://www.guru99.com/insertion-sort-java.html
+ */
 public class InsertionSort1 {
 
     /**
