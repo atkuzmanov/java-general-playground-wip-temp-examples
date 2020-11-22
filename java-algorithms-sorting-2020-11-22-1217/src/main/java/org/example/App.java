@@ -9,13 +9,19 @@ public class App {
     public static void main(String[] args) {
         System.out.println("Hello World!");
 
-        int[] arr = {64,25,12,22,11};
+        int[] arr = {64, 25, 12, 22, 11};
 
         /*--------------------------------*/
-        int[] sorted1 =  SelectionSort1.selectionSort1(arr);
+        System.out.println("Selection Sort Start");
+        int[] sorted1 = SelectionSort1.selectionSort1(arr);
         printArray(sorted1);
+        SelectionSort1.selectionSort2(arr);
+        SelectionSort1.selectionSort3(arr);
+        printArray(arr);
+        arr = new int[]{64, 25, 12, 22, 11};
+        printArray(arr);
+        System.out.println("Selection Sort End");
         /*--------------------------------*/
-        
     }
 
     static void printArray(int arr[]) {
