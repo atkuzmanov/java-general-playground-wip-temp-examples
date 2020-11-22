@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.insertionsort.InsertionSort1;
 import org.example.selectionsort.SelectionSort1;
 
 /**
@@ -21,6 +22,13 @@ public class App {
         arr = new int[]{64, 25, 12, 22, 11};
         printArray(arr);
         System.out.println("Selection Sort End");
+        /*--------------------------------*/
+        System.out.println("Insertion Sort Start");
+        InsertionSort1.insertionSort1_2(arr);
+        printArray(arr);
+        arr = new int[]{64, 25, 12, 22, 11};
+        printArray(arr);
+        System.out.println("Insertion Sort End");
         /*--------------------------------*/
     }
 
