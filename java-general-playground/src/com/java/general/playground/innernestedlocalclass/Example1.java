@@ -1,4 +1,4 @@
-package com.java.general.playground;
+package com.java.general.playground.innernestedlocalclass;
 
 public class Example1 {
 
